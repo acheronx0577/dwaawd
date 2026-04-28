@@ -1,0 +1,107 @@
+/* Short viewports — compact the manage panel so it fits on laptops */
+@media(max-height:720px) {
+  .banner-inner {
+    gap: 14px;
+    padding: 10px 20px;
+  }
+
+  .banner-headline {
+    font-size: clamp(22px, 4vw, 42px);
+  }
+
+  .banner-sub {
+    font-size: clamp(11px, 1.2vw, 14px);
+  }
+
+  .b-btn {
+    padding: clamp(4px, 6cqi, 10px) clamp(3px, 4cqi, 14px);
+  }
+
+  .b-stat-val {
+    font-size: clamp(18px, 1.8vw, 22px);
+  }
+
+  .manage-overlay {
+    padding: 12px;
+  }
+
+  .mgr-panel {
+    max-height: calc(100vh - 24px);
+    max-width: min(560px, 92vw);
+  }
+
+  .mgr-hd {
+    padding: 10px 18px;
+    gap: 8px;
+  }
+
+  .mgr-hd-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .mgr-hd-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mgr-hd-title {
+    font-size: 28px;
+  }
+
+  .mgr-hd-tag {
+    font-size: 9px;
+    margin-bottom: 2px;
+  }
+
+  .mgr-row {
+    gap: 8px;
+    padding: 8px 16px;
+  }
+
+  .mgr-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mgr-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mgr-name {
+    font-size: 20px;
+  }
+
+  .mgr-desc {
+    font-size: 12px;
+  }
+
+  .mgr-badge {
+    font-size: 9px;
+    padding: 2px 7px;
+  }
+
+  .mgr-footer {
+    padding: 8px 16px;
+    gap: 6px;
+  }
+
+  .mgr-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .tog {
+    width: 34px;
+    height: 18px;
+  }
+
+  .tog::after {
+    left: 2px;
+  }
+
+  .tog:checked::after {
+    left: calc(100% - 2px);
+  }
+}
