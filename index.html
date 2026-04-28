@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Consent</title>
+  <link rel="stylesheet" href="cookie_consent.css">
+</head>
+<body>
+
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Life Plus+ cookie consent banner</h2>
+
+<div class="scene" id="scene">
+
+  <div class="fake-page">
+    <div class="fp-grid">
+      <div class="fp-card"><div class="fp-card-tag">Today's goal</div><div class="fp-card-val">8,240 steps</div></div>
+      <div class="fp-card"><div class="fp-card-tag">Sleep quality</div><div class="fp-card-val">Deep &middot; 6h</div></div>
+      <div class="fp-card"><div class="fp-card-tag">Streak</div><div class="fp-card-val">14 days</div></div>
+    </div>
+  </div>
+
+  <!-- BANNER — bottom bar -->
+  <div class="banner" id="banner">
+    <div class="banner-inner">
+
+      <!-- LEFT: all copy -->
+      <div class="banner-left">
+        <div class="banner-meta-row">
+          <span class="b-tag">Cookie Notice</span>
+          <span class="b-dot">&middot;</span>
+          <span class="b-law">Feature presentation &middot; Cookie Act 2026</span>
+        </div>
+        <div class="banner-headline">WE USE <em>COOKIES.</em> YOU CALL THE SHOTS.</div>
+        <div class="banner-sub">We need some to keep the lights on — the rest is your call. Pick what you're comfortable with.</div>
+      </div>
+
+      <!-- RIGHT: 3 horizontal buttons + stats wrapped together -->
+      <div style="display:flex;align-items:stretch;gap:10px;flex:1 1 auto;min-width:0;">
+        <div class="banner-btns">
+          <button class="b-btn b-accept" id="btn-accept">
+            Accept All
+            <span class="b-btn-sub">All categories</span>
+          </button>
+          <button class="b-btn b-manage" id="btn-manage">
+            Manage
+            <span class="b-btn-sub">Pick &amp; choose</span>
+          </button>
+          <button class="b-btn b-deny" id="btn-deny">
+            Deny All
+            <span class="b-btn-sub">Essentials only</span>
+          </button>
+        </div>
+
+        <!-- FAR RIGHT: stats vertical column -->
+        <div class="banner-stats">
+          <div class="b-stat">
+            <div class="b-stat-lbl">Session</div>
+            <div class="b-stat-val">001</div>
+            <div class="b-stat-sub">active</div>
+          </div>
+          <div class="b-stat">
+            <div class="b-stat-lbl">Expires</div>
+            <div class="b-stat-val">30D</div>
+            <div class="b-stat-sub">30 days</div>
+          </div>
+          <div class="b-stat">
+            <div class="b-stat-lbl">Admit</div>
+            <div class="b-stat-val">1</div>
+            <div class="b-stat-sub">device</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MANAGE OVERLAY -->
+  <div class="manage-overlay" id="manage-overlay">
+    <div class="mgr-panel">
+      <div class="mgr-hd">
+        <div class="mgr-hd-left">
+          <div class="mgr-hd-icon">
+            <svg viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="5.5" stroke="#9bc1bc" stroke-width="1.5"/>
+              <circle cx="5.5" cy="7" r="1.1" fill="#9bc1bc"/>
+              <circle cx="10.5" cy="6" r="1.1" fill="#9bc1bc"/>
+              <circle cx="8" cy="10.5" r="1.1" fill="#9bc1bc"/>
+            </svg>
+          </div>
+          <div>
+            <div class="mgr-hd-tag">Your cookies &middot; Cookie Act 2026</div>
+            <div class="mgr-hd-title">YOUR <em>CONTROLS.</em></div>
+          </div>
+        </div>
+        <div class="mgr-hd-stats">
+          <div class="mgr-stat"><div class="mgr-stat-lbl">Session</div><div class="mgr-stat-val">001</div><div class="mgr-stat-sub">active</div></div>
+          <div class="mgr-stat"><div class="mgr-stat-lbl">Expires</div><div class="mgr-stat-val">30D</div><div class="mgr-stat-sub">30 days</div></div>
+          <div class="mgr-stat"><div class="mgr-stat-lbl">Admit</div><div class="mgr-stat-val">1</div><div class="mgr-stat-sub">device</div></div>
+        </div>
+      </div>
+
+      <div class="mgr-rows">
+        <div class="mgr-row locked">
+          <div class="mgr-icon" style="background:var(--a2);">
+            <svg viewBox="0 0 15 15" fill="none"><rect x="2.5" y="6.5" width="10" height="7" rx="1.5" stroke="#141414" stroke-width="1.4"/><path d="M5 6.5V5a2.5 2.5 0 015 0v1.5" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/><circle cx="7.5" cy="10" r="1.2" fill="#141414"/></svg>
+          </div>
+          <div class="mgr-body">
+            <div class="mgr-top"><div class="mgr-name">Essential</div><span class="mgr-badge">Always on</span></div>
+            <div class="mgr-desc">Login, security tokens &amp; load balancing. Non-negotiable.</div>
+          </div>
+          <div class="tog-wrap"><input type="checkbox" class="tog" checked disabled></div>
+        </div>
+        <div class="mgr-row">
+          <div class="mgr-icon" style="background:var(--a3);">
+            <svg viewBox="0 0 15 15" fill="none"><polyline points="1.5,12 5,8 7.5,10.5 10.5,5.5 13.5,7.5" stroke="#141414" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="mgr-body">
+            <div class="mgr-top"><div class="mgr-name">Analytics</div></div>
+            <div class="mgr-desc">Helps us understand what's working. No personal data sold.</div>
+          </div>
+          <div class="tog-wrap"><input type="checkbox" class="tog" id="t-a" checked></div>
+        </div>
+        <div class="mgr-row">
+          <div class="mgr-icon" style="background:var(--a4);">
+            <svg viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5" stroke="#edf1e8" stroke-width="1.4"/><circle cx="7.5" cy="7.5" r="1.8" fill="#edf1e8"/><line x1="7.5" y1="1" x2="7.5" y2="3.2" stroke="#edf1e8" stroke-width="1.4" stroke-linecap="round"/><line x1="7.5" y1="11.8" x2="7.5" y2="14" stroke="#edf1e8" stroke-width="1.4" stroke-linecap="round"/><line x1="1" y1="7.5" x2="3.2" y2="7.5" stroke="#edf1e8" stroke-width="1.4" stroke-linecap="round"/><line x1="11.8" y1="7.5" x2="14" y2="7.5" stroke="#edf1e8" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="mgr-body">
+            <div class="mgr-top"><div class="mgr-name">Personalization</div></div>
+            <div class="mgr-desc">Remembers your language, theme &amp; region between visits.</div>
+          </div>
+          <div class="tog-wrap"><input type="checkbox" class="tog" id="t-p" checked></div>
+        </div>
+        <div class="mgr-row">
+          <div class="mgr-icon" style="background:var(--a1);">
+            <svg viewBox="0 0 15 15" fill="none"><rect x="1.5" y="4" width="12" height="7.5" rx="1.5" stroke="#fff" stroke-width="1.4"/><line x1="1.5" y1="7" x2="13.5" y2="7" stroke="#fff" stroke-width="1.4"/><line x1="4" y1="9.8" x2="6.5" y2="9.8" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="mgr-body">
+            <div class="mgr-top"><div class="mgr-name">Marketing</div></div>
+            <div class="mgr-desc">Targeted ads on partner sites. Shared with ad networks.</div>
+          </div>
+          <div class="tog-wrap"><input type="checkbox" class="tog" id="t-m"></div>
+        </div>
+      </div>
+
+      <div class="mgr-footer">
+        <button class="mgr-btn mgr-back" id="btn-back">&larr; Back</button>
+        <button class="mgr-btn mgr-save" id="btn-save">Save Choices</button>
+        <button class="mgr-btn mgr-all" id="btn-all">All In</button>
+        <span class="saved-msg" id="saved-msg">
+          <span class="saved-dot">
+            <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><polyline points="2,5 4.2,7.5 8,3" stroke="#141414" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          Saved!
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div class="done-state" id="done-state">
+    <div class="done-card">
+      <div class="done-ring" id="done-ring">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <polyline points="5,12 10,17.5 19,8" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="done-title" id="done-title">SORTED!</div>
+      <div class="done-sub" id="done-sub">Your preferences are saved.<br>Change them anytime in settings.</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="cookie_consent.js"></script>
+</body>
+</html>
