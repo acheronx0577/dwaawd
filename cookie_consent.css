@@ -547,14 +547,14 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: 2px;
-  width: clamp(14px, 1.4vw, 20px);
-  height: clamp(14px, 1.4vw, 20px);
+  left: 2.5px;
+  height: calc(100% - 6px);
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--bg2);
   border: 2px solid var(--fg);
-  transform: translateY(-50%);
-  transition: transform .2s, background .2s;
+  transform: translateY(-50%) translateX(0);
+  transition: left .2s, transform .2s, background .2s;
 }
 
 .tog:checked {
@@ -562,7 +562,8 @@
 }
 
 .tog:checked::after {
-  transform: translateY(-50%) translateX(clamp(16px, 1.8vw, 24px));
+  left: calc(100% - 2.5px);
+  transform: translateY(-50%) translateX(-100%);
   background: #fff;
   border-color: var(--fg);
 }
@@ -919,15 +920,7 @@ body {
     border-radius: 10px;
   }
 
-  .tog::after {
-    width: 12px;
-    height: 12px;
-    left: 1.5px;
-  }
-
-  .tog:checked::after {
-    transform: translateY(-50%) translateX(14px);
-  }
+  /* Inner toggle circle scales automatically */
 }
 
 /* Short viewports — compact the manage panel so it fits on laptops */
@@ -1030,12 +1023,10 @@ body {
   }
 
   .tog::after {
-    width: 11px;
-    height: 11px;
     left: 2px;
   }
 
   .tog:checked::after {
-    transform: translateY(-50%) translateX(13px);
+    left: calc(100% - 2px);
   }
 }
