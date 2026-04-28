@@ -22,10 +22,11 @@
 /* Full-page scene — no border/radius/shadow */
 .scene {
   background: var(--bg);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 
 .fake-page {
