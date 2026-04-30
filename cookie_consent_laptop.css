@@ -91,17 +91,8 @@
     font-size: 13px;
     padding: 8px 14px;
   }
-
   .tog {
-    width: 34px;
-    height: 18px;
-  }
-
-  .tog::after {
-    left: 2px;
-  }
-
-  .tog:checked::after {
-    left: calc(100% - 2px);
+    width: 44px;
+    height: 24px;
   }
 }
