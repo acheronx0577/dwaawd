@@ -19,6 +19,9 @@
       doneSub.innerHTML='Your preferences are saved.<br>Change them anytime in settings.';
     }
     done.classList.add('visible');
+    setTimeout(function() {
+      done.classList.remove('visible');
+    }, 2000);
   }
 
   document.getElementById('btn-accept').onclick=function(){
@@ -44,6 +47,6 @@
   document.getElementById('btn-save').onclick=function(){
     var s=document.getElementById('saved-msg');
     s.classList.add('show');
-    setTimeout(function(){s.classList.remove('show');finish('save');},1300);
+    setTimeout(function(){s.classList.remove('show');finish('save');},500);
   };
 })();

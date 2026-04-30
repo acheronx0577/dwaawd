@@ -13,16 +13,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
   --shadow: 3px 3px 0 #000;
 }
 
-/* ── SCENE / FAKE PAGE ── */
-.scene { background: var(--bg); height: 100vh; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-.fake-page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 32px 0; }
-.fp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%; max-width: 560px; }
-.fp-card { background: var(--bg2); border: 2px solid var(--fg); border-radius: 10px; padding: 14px; box-shadow: var(--shadow); }
-.fp-card-tag { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(20,20,20,.4); margin-bottom: 6px; }
-.fp-card-val { font-family: var(--display); font-size: 24px; color: var(--fg); line-height: 1; }
-
 /* ── BANNER ── */
-.banner { background: var(--fg); border-top: 3px solid #000; transition: opacity .25s, transform .25s; width: 100%; overflow: hidden; }
+.banner { background: var(--fg); border-top: 3px solid #000; transition: opacity .25s, transform .25s; width: 100%; overflow: hidden; position: fixed; bottom: 0; left: 0; z-index: 90; }
 .banner.hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
 
 .banner-inner { display: flex; align-items: center; gap: 24px; padding: 18px 28px; width: 100%; box-sizing: border-box; overflow: hidden; }
@@ -134,9 +126,95 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .saved-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--a3); border: 2px solid var(--fg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
 /* ── DONE STATE ── */
-.done-state { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; background: var(--bg); z-index: 50; }
+.done-state { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; background: rgba(20,20,20,.78); z-index: 50; }
+
 .done-state.visible { opacity: 1; }
 .done-card { background: var(--fg); border: 3px solid var(--fg); border-radius: 14px; box-shadow: 6px 6px 0 #000; padding: 36px 44px; text-align: center; }
 .done-ring { width: 56px; height: 56px; border-radius: 50%; background: var(--a3); border: 3px solid rgba(255,255,255,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
 .done-title { font-family: var(--display); font-size: clamp(30px,3vw,40px); letter-spacing: .02em; color: var(--bg); line-height: 1; margin-bottom: 8px; }
 .done-sub { font-family: var(--sans); font-size: 12px; font-weight: 500; color: rgba(237,241,232,.4); line-height: 1.6; }
+/* ── RESPONSIVE ── */
+
+/* Prevent any horizontal scroll at root */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Medium: hide secondary copy, tighten gap */
+@media(max-width:820px) {
+  .banner-inner { gap: 14px; padding: 14px 18px; }
+  .banner-left { max-width: 34%; }
+  .b-law, .b-dot { display: none; }
+  .banner-sub { display: none; }
+  .banner-headline { font-size: clamp(20px, 3.5vw, 40px); }
+  
+  /* Manage panel — tighten at medium */
+  .mgr-hd { padding: 14px 20px; gap: 12px; }
+  .mgr-hd-stats { display: none; }
+  .mgr-row { gap: 10px; padding: 12px 18px; }
+  .mgr-icon { width: 36px; height: 36px; }
+  .mgr-icon svg { width: 16px; height: 16px; }
+  .mgr-name { font-size: 20px; }
+  .mgr-desc { font-size: 12px; }
+  .mgr-footer { padding: 12px 18px; gap: 8px; }
+  .mgr-btn { font-size: 15px; padding: 10px 16px; }
+}
+
+/* Small: stack vertically, keep stats visible beside buttons */
+@media(max-width:600px) {
+  .banner-inner { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 16px; }
+  .banner-left { max-width: 100%; }
+  .banner-headline { font-size: clamp(24px, 7vw, 38px); }
+  .banner-meta-row { display: none; }
+  
+  /* Buttons + stats sit side by side in a row */
+  .banner-btns { flex: 1 1 0; gap: 6px; }
+  .banner-stats { flex-direction: column; border-left: 1.5px solid rgba(255, 255, 255, .12); padding-left: 12px; margin-left: 0; gap: 5px; justify-content: space-around; flex-shrink: 0; }
+  .b-stat-val { font-size: 20px; }
+  .b-stat-lbl, .b-stat-sub { font-size: 8px; }
+
+  /* Manage panel — compact at small */
+  .mgr-panel { max-width: 95vw; border-radius: 12px; }
+  .mgr-hd { flex-direction: column; align-items: flex-start; padding: 14px 16px; gap: 8px; }
+  .mgr-hd-icon { width: 58px; height: 58px; }
+  .mgr-hd-icon svg { width: 24px; height: 24px; }
+  .mgr-hd-title { font-size: 26px; }
+  .mgr-hd-tag { font-size: 9px; margin-bottom: 2px; }
+  
+  .mgr-row { gap: 10px; padding: 10px 14px; }
+  .mgr-icon { width: 36px; height: 36px; box-shadow: 1px 1px 0 #000; }
+  .mgr-icon svg { width: 16px; height: 16px; }
+  .mgr-name { font-size: 22px; }
+  .mgr-badge { font-size: 10px; padding: 2px 8px; }
+  .mgr-desc { font-size: 13px; }
+  
+  .mgr-footer { padding: 10px 14px; gap: 6px; flex-wrap: wrap; }
+  .mgr-btn { font-size: 14px; padding: 9px 14px; }
+}
+
+/* Short viewports — compact the manage panel so it fits on laptops */
+@media(max-height:720px) {
+  .banner-inner { gap: 14px; padding: 10px 20px; }
+  .banner-headline { font-size: clamp(22px, 4vw, 42px); }
+  .banner-sub { font-size: clamp(11px, 1.2vw, 14px); }
+  .b-btn { padding: clamp(4px, 6cqi, 10px) clamp(3px, 4cqi, 14px); }
+  .b-stat-val { font-size: clamp(18px, 1.8vw, 22px); }
+  .manage-overlay { padding: 12px; }
+  .mgr-panel { max-height: calc(100vh - 24px); max-width: min(560px, 92vw); }
+  .mgr-hd { padding: 10px 18px; gap: 8px; }
+  .mgr-hd-icon { width: 60px; height: 60px; }
+  .mgr-hd-icon svg { width: 24px; height: 24px; }
+  .mgr-hd-title { font-size: 28px; }
+  .mgr-hd-tag { font-size: 9px; margin-bottom: 2px; }
+  .mgr-row { gap: 8px; padding: 8px 16px; }
+  .mgr-icon { width: 34px; height: 34px; }
+  .mgr-icon svg { width: 16px; height: 16px; }
+  .mgr-name { font-size: 20px; }
+  .mgr-desc { font-size: 12px; }
+  .mgr-badge { font-size: 9px; padding: 2px 7px; }
+  .mgr-footer { padding: 8px 16px; gap: 6px; }
+  .mgr-btn { font-size: 13px; padding: 8px 14px; }
+  .tog { width: 44px; height: 24px; }
+}
