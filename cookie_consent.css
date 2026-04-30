@@ -14,8 +14,18 @@ html, body { max-width: 100%; overflow-x: hidden; }
 }
 
 /* ── BANNER ── */
-.banner { background: var(--fg); border-top: 3px solid #000; transition: opacity .25s, transform .25s; width: 100%; overflow: hidden; position: fixed; bottom: 0; left: 0; z-index: 90; }
-.banner.hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
+@keyframes banner-slide-up {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.banner {
+  background: var(--fg); border-top: 3px solid #000;
+  transition: opacity .25s, transform .25s;
+  width: 100%; overflow: hidden; position: fixed; bottom: 0; left: 0; z-index: 90;
+  animation: banner-slide-up .55s cubic-bezier(.22,.68,0,1.2) .6s both;
+}
+.banner.hidden { opacity: 0; pointer-events: none; transform: translateY(8px); animation: none; }
 
 .banner-inner { display: flex; align-items: center; gap: 24px; padding: 18px 28px; width: 100%; box-sizing: border-box; overflow: hidden; }
 .banner-left { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
@@ -191,7 +201,8 @@ body {
   .mgr-desc { font-size: 13px; }
   
   .mgr-footer { padding: clamp(8px, 2.5vw, 10px) clamp(10px, 3vw, 14px); gap: clamp(4px, 1vw, 6px); flex-wrap: nowrap; overflow-x: auto; }
-  .mgr-btn { font-size: clamp(14px, 4.5vw, 16px); padding: clamp(10px, 2vw, 12px) clamp(14px, 3.5vw, 18px); flex: 0 1 auto; min-width: 0; }
+  .mgr-btn { font-size: clamp(14px, 4.5vw, 16px); padding: clamp(10px, 2vw, 12px) 10px; flex: 0 1 auto; min-width: 0; }
+  .mgr-back { padding-left: 10px; padding-right: 10px; }
   
   .saved-msg { font-size: 8px; gap: 4px; margin-left: 2px; }
   .saved-dot { width: 12px; height: 12px; border-width: 1.5px; }
