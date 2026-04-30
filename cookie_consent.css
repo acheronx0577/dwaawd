@@ -222,3 +222,9 @@ body {
   .mgr-btn { font-size: 13px; padding: 8px 14px; }
   .tog { width: 44px; height: 24px; }
 }
+
+/* Extra small screens: allow the Saved! message to stack below the buttons */
+@media(max-width:335px) {
+  .mgr-footer { flex-wrap: wrap; justify-content: center; }
+  .saved-msg { flex-basis: 100%; justify-content: center; margin-left: 0; margin-top: 2px; }
+}
